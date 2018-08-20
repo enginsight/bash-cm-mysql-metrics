@@ -6,7 +6,7 @@
 
 # PLEASE READ ME!
 # You need to enable the PERFORMANCE_SCHEMA.
-# See the https://dev.mysql.com/doc/refman/5.6/en/performance-schema-startup-configuration.html for details:
+# See https://dev.mysql.com/doc/refman/5.6/en/performance-schema-startup-configuration.html for details:
 #
 # Please add the following configuration to your mysql.cnf:
 #  [mysqld] 
