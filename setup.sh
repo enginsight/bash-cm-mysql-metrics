@@ -31,12 +31,12 @@ QUERY=$(mysql -u $MYSQL_USER -e "use sys; \
 from 
   sys.metrics
 where 
-  VARIABLE_NAME IN ('Queries', 'Questions', 'Connections', 'Bytes_received', 'Bytes_sent', 'Slow_queries', 'qcache_hits')";)
+  VARIABLE_NAME IN ('Queries', 'Questions', 'Threads_connected', 'Bytes_received', 'Bytes_sent', 'Slow_queries', 'qcache_hits')";)
 
 mysql_version=$(mysql --version)
 mysql_queries=$(echo "$QUERY" | awk '{if($1=="queries") { print $3 }}')
 mysql_questions=$(echo "$QUERY" | awk '{if($1=="questions") { print $3 }}')
-mysql_connections=$(echo "$QUERY" | awk '{if($1=="connections") { print $2 }}')
+mysql_connections=$(echo "$QUERY" | awk '{if($1=="threads_connected") { print $2 }}')
 mysql_bytes_sent=$(echo "$QUERY" | awk '{if($1=="bytes_sent") { print $3 }}')
 mysql_bytes_received=$(echo "$QUERY" | awk '{if($1=="bytes_received") { print $3 }}')
 mysql_slow_queries=$(echo "$QUERY" | awk '{if($1=="slow_queries") { print $3 }}')
